@@ -15,6 +15,7 @@ class WebhookController < ApplicationController
     text_message = result['content']['text']
     from_mid =result['content']['from']
 
+    binding.pry
     client = LineClient.new(CHANNEL_ID, CHANNEL_SECRET, CHANNEL_MID, OUTBOUND_PROXY)
     res = client.send([from_mid], text_message)
 
